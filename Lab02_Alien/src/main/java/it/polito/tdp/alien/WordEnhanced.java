@@ -7,10 +7,14 @@ public class WordEnhanced {
 	private String word;
 	private ArrayList<String> translation;
 	
-	public WordEnhanced() {
+	public WordEnhanced(String alien, String first) {
+		this.word=alien;
 		translation = new ArrayList<>();
+		translation.add(first);
 	}
 	
+	
+
 	/**
 	 * @return the translation
 	 */
@@ -27,6 +31,11 @@ public class WordEnhanced {
 	 */
 	public void setTranslation(String translation) {
 		this.translation.add(translation);
+	}
+
+	public Object getAlienWord() {
+		// TODO Auto-generated method stub
+		return word;
 	}
 
 }

@@ -4,29 +4,30 @@ import java.util.*;
 
 public class AlienDictionary {
 	
-	private List<Word> lista;
-	//Map<String,Word> mappa;
+	private List<WordEnhanced> lista;
+	
 	
 
 	
 	public AlienDictionary() {
 		lista = new ArrayList<>();
-		//mappa = new HashMap<>();
+		
 	}
 	
 	public void addWord(String alienWord, String translation) {
-		Word n = new Word(alienWord, translation);
 		
-		if(lista.contains(n)) {
-			lista.get(lista.indexOf(n)).setTranslation(translation);
-			return;
+		for(WordEnhanced w:lista) {
+			if(w.getAlienWord().equals(alienWord)) {
+				lista.get(lista.indexOf(w)).setTranslation(translation);
+				return;
+			}
 		}
-		lista.add(n);
+		lista.add(new WordEnhanced(alienWord, translation));
 	}
 	
 	public String translateWord(String alienWord) {
 		
-		for(Word w : lista) {
+		for(WordEnhanced w : lista) {
 			if(w.getAlienWord().equals(alienWord))
 				return w.getTranslation();
 		}
@@ -36,7 +37,7 @@ public class AlienDictionary {
 	
 	public void cancella() {
 		lista.clear();
-		//mappa.clear();
+		
 	}
 
 }
